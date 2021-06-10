@@ -1,18 +1,10 @@
-import { AfterViewChecked, ChangeDetectorRef, Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
-export class AppComponent implements AfterViewChecked {
-
-  constructor(public auth: AuthService,
-              private changeDetector: ChangeDetectorRef) { }
-
-  // This fixes: https://github.com/DavideViolante/Angular-Full-Stack/issues/105
-  ngAfterViewChecked(): void {
-    this.changeDetector.detectChanges();
-  }
-
+export class AppComponent {
+  title = "black-dashboard-angular";
 }

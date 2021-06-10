@@ -1,59 +1,47 @@
-// Angular
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { JwtModule } from '@auth0/angular-jwt';
-// Modules
-import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
-// Services
-import { CatService } from './services/cat.service';
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardLogin } from './services/auth-guard-login.service';
-import { AuthGuardAdmin } from './services/auth-guard-admin.service';
-// Components
-import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { AddCatFormComponent } from './add-cat-form/add-cat-form.component';
-import { AboutComponent } from './about/about.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AccountComponent } from './account/account.component';
-import { AdminComponent } from './admin/admin.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+import { ToastrModule } from "ngx-toastr";
+
+import { AppComponent } from "./app.component";
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
+import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { AppRoutingModule } from "./app-routing.module";
+import { ComponentsModule } from "./components/components.module";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormField } from "@angular/material/form-field";
+import { MatTableModule } from "@angular/material/table";
+import { MemberdetailComponent } from "./pages/memberdetail/memberdetail.component";
+// import { MapComponent } from "./pages/map/map.component";
 
 @NgModule({
+  imports: [
+    MatTableModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    NgbModule,
+    RouterModule,
+    AppRoutingModule,
+    // MatFormField,
+
+    ToastrModule.forRoot(),
+  ],
   declarations: [
     AppComponent,
-    CatsComponent,
-    AddCatFormComponent,
-    AboutComponent,
-    RegisterComponent,
-    LoginComponent,
-    LogoutComponent,
-    AccountComponent,
-    AdminComponent,
-    NotFoundComponent
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    MemberdetailComponent,
+    // MapComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    SharedModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: (): string => localStorage.getItem('token'),
-        // allowedDomains: ['localhost:3000', 'localhost:4200']
-      }
-    })
-  ],
-  providers: [
-    AuthService,
-    AuthGuardLogin,
-    AuthGuardAdmin,
-    CatService,
-    UserService
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

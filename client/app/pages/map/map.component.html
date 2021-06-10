@@ -1,0 +1,156 @@
+<div class="content">
+  <app-sidebar></app-sidebar>
+  <!-- policies -->
+  <div class=" row" *ngIf="true">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h3 class=" title">Policies</h3>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Member Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>State</th>
+                  <th>Group Number</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of searchData">
+                  <td>{{data.memberID}}</td>
+                  <td>{{data.fname}}</td>
+                  <td>{{data.lname}}</td>
+                  <td>{{data.state}}</td>
+                  <td>{{data.groupNumber}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class=" card-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- case history -->
+  <div class=" row" *ngIf="true">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h3 class=" title">Case History</h3>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Member Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>State</th>
+                  <th>Group Number</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of searchData">
+                  <td>{{data.memberID}}</td>
+                  <td>{{data.fname}}</td>
+                  <td>{{data.lname}}</td>
+                  <td>{{data.state}}</td>
+                  <td>{{data.groupNumber}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class=" card-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- interactions & live chat transcript -->
+  <div class=" row" *ngIf="true">
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h3 class=" title">Interactions (Interacting with)</h3>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Member Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>State</th>
+                  <th>Group Number</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of searchData">
+                  <td>{{data.memberID}}</td>
+                  <td>{{data.fname}}</td>
+                  <td>{{data.lname}}</td>
+                  <td>{{data.state}}</td>
+                  <td>{{data.groupNumber}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class=" card-footer">
+
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h3 class=" title">Live chat transcripts</h3>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Member Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>State</th>
+                  <th>Group Number</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of searchData">
+                  <td>{{data.memberID}}</td>
+                  <td>{{data.fname}}</td>
+                  <td>{{data.lname}}</td>
+                  <td>{{data.state}}</td>
+                  <td>{{data.groupNumber}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class=" card-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

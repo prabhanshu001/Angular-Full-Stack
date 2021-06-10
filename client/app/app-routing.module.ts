@@ -1,34 +1,51 @@
-// Angular
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-// Services
-import { AuthGuardLogin } from './services/auth-guard-login.service';
-import { AuthGuardAdmin } from './services/auth-guard-admin.service';
-// Components
-import { CatsComponent } from './cats/cats.component';
-import { AboutComponent } from './about/about.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AccountComponent } from './account/account.component';
-import { AdminComponent } from './admin/admin.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { Routes, RouterModule } from "@angular/router";
+
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 const routes: Routes = [
-  { path: '', component: AboutComponent },
-  { path: 'cats', component: CatsComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
-  { path: 'notfound', component: NotFoundComponent },
-  { path: '**', redirectTo: '/notfound' },
+  {
+    path: "",
+    redirectTo: "dashboard",
+    pathMatch: "full"
+  },
+  {
+    path: "",
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: "",
+        loadChildren:
+          "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
+      }
+    ]
+  }, {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
+      }
+    ]
+  },
+  {
+    path: "**",
+    redirectTo: "dashboard"
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })
+  ],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule {}
