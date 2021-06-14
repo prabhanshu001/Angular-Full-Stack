@@ -12,28 +12,25 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 // Components
 import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { AddCatFormComponent } from './add-cat-form/add-cat-form.component';
-import { AboutComponent } from './about/about.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AccountComponent } from './account/account.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MainComponent } from './main/main.component';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { SearchPagesComponent } from './search-pages/search-pages.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatsComponent,
-    AddCatFormComponent,
-    AboutComponent,
-    RegisterComponent,
-    LoginComponent,
-    LogoutComponent,
-    AccountComponent,
     AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MainComponent,
+    MemberDetailComponent,
+    SearchPagesComponent,
+    SidebarComponent,
+    NavbarComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,18 +39,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
       config: {
         tokenGetter: (): string => localStorage.getItem('token'),
         // allowedDomains: ['localhost:3000', 'localhost:4200']
-      }
-    })
+      },
+    }),
   ],
   providers: [
     AuthService,
     AuthGuardLogin,
     AuthGuardAdmin,
     CatService,
-    UserService
+    UserService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}
